@@ -10,8 +10,9 @@ function loadExchangeRates() {
   request.onload = function() {
     let status = request.status;
     if (status == 200) {
+      var info = " ";
       for (var rate of request.response) {
-        content.innerHTML +=
+        info +=
           `<tr>
                <td>` +
           rate.txt +
@@ -21,6 +22,7 @@ function loadExchangeRates() {
           `    </td>
            <tr>`;
       }
+      content.innerHTML = info;
     }
   };
 }
